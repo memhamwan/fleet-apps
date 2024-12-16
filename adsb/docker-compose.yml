@@ -128,7 +128,9 @@ services:
       - ultrafeeder_globe_history:/var/globe_history
       - ultrafeeder_graphs1090:/var/lib/collectd
       - /proc/diskstats:/proc/diskstats:ro
-      - /dev:/dev:ro
+      - /dev/bus/usb:/dev/bus/usb:rw
+    # Below read only did not work on this pi, but I have used it in other situations... So RW above - Sam
+    #  - /dev:/dev:ro
     tmpfs:
       - /run:exec,size=256M
       - /tmp:size=128M
